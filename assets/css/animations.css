@@ -1,0 +1,190 @@
+/* ============================================================
+   animations.css — LearnFlow Animations & Transitions
+   ============================================================ */
+
+/* ── Page Transitions ── */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ── Utility Animation Classes ── */
+.animate-slide-up {
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-fade {
+  animation: fadeIn 0.45s ease both;
+}
+
+.animate-scale {
+  animation: scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-in {
+  animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ── Stagger Delays ── */
+.delay-1 { animation-delay: 0.08s; }
+.delay-2 { animation-delay: 0.16s; }
+.delay-3 { animation-delay: 0.24s; }
+.delay-4 { animation-delay: 0.32s; }
+
+/* ── Spinner ── */
+@keyframes spinRing {
+  to { transform: rotate(360deg); }
+}
+
+.spinner-ring {
+  width: 44px;
+  height: 44px;
+  border: 3px solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spinRing 0.75s linear infinite;
+}
+
+.spinner-sm {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spinRing 0.6s linear infinite;
+  vertical-align: middle;
+}
+
+/* ── Toast Animations ── */
+@keyframes toastSlideIn {
+  from { opacity: 0; transform: translateX(100%) scale(0.9); }
+  to   { opacity: 1; transform: translateX(0) scale(1); }
+}
+
+@keyframes toastSlideOut {
+  from { opacity: 1; transform: translateX(0) scale(1); }
+  to   { opacity: 0; transform: translateX(110%) scale(0.88); }
+}
+
+.toast-enter   { opacity: 0; transform: translateX(100%) scale(0.9); }
+.toast-visible { animation: toastSlideIn 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.toast-exit    { animation: toastSlideOut 0.35s ease forwards; }
+
+/* ── Chatbot Animations ── */
+@keyframes chatOpen {
+  from { opacity: 0; transform: translateY(20px) scale(0.94); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes chatClose {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to   { opacity: 0; transform: translateY(20px) scale(0.94); }
+}
+
+@keyframes fabPulse {
+  0%, 100% { box-shadow: 0 4px 20px var(--color-primary-glow), 0 0 0 0 var(--color-primary-glow); }
+  50% { box-shadow: 0 4px 20px var(--color-primary-glow), 0 0 0 12px transparent; }
+}
+
+@keyframes typingDot {
+  0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+  40%           { transform: scale(1.1); opacity: 1; }
+}
+
+/* ── Progress Bar Fill Animation ── */
+@keyframes progressFill {
+  from { width: 0%; }
+}
+
+.progress-bar-fill,
+.mini-progress div {
+  animation: progressFill 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+  animation-delay: 0.3s;
+}
+
+/* ── Card Hover Micro-interactions ── */
+@keyframes cardGlow {
+  from { box-shadow: var(--shadow-sm); }
+  to   { box-shadow: var(--shadow-lg), 0 0 0 1px var(--color-primary); }
+}
+
+/* ── Score Ring Animation ── */
+@keyframes ringReveal {
+  from { stroke-dashoffset: 339.3; }
+}
+
+.ring-fill {
+  animation: ringReveal 1.2s cubic-bezier(0.4, 0, 0.2, 1) 0.4s both;
+}
+
+/* ── Lesson Item Entrance ── */
+.lesson-list .lesson-item {
+  animation: slideRight 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.lesson-list .lesson-item:nth-child(1)  { animation-delay: 0.05s; }
+.lesson-list .lesson-item:nth-child(2)  { animation-delay: 0.10s; }
+.lesson-list .lesson-item:nth-child(3)  { animation-delay: 0.15s; }
+.lesson-list .lesson-item:nth-child(4)  { animation-delay: 0.20s; }
+.lesson-list .lesson-item:nth-child(5)  { animation-delay: 0.25s; }
+.lesson-list .lesson-item:nth-child(n+6){ animation-delay: 0.30s; }
+
+/* ── Course Card Entrance ── */
+.courses-grid .course-card {
+  animation: scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.courses-grid .course-card:nth-child(1) { animation-delay: 0.05s; }
+.courses-grid .course-card:nth-child(2) { animation-delay: 0.10s; }
+.courses-grid .course-card:nth-child(3) { animation-delay: 0.15s; }
+.courses-grid .course-card:nth-child(4) { animation-delay: 0.20s; }
+.courses-grid .course-card:nth-child(n+5){ animation-delay: 0.25s; }
+
+/* ── Question Card Entrance ── */
+.quiz-question-card {
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.quiz-question-card:nth-child(1) { animation-delay: 0.06s; }
+.quiz-question-card:nth-child(2) { animation-delay: 0.12s; }
+.quiz-question-card:nth-child(3) { animation-delay: 0.18s; }
+.quiz-question-card:nth-child(n+4){ animation-delay: 0.24s; }
+
+/* ── Stat Card Entrance ── */
+.stat-card {
+  animation: scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.stats-grid .stat-card:nth-child(1) { animation-delay: 0.1s; }
+.stats-grid .stat-card:nth-child(2) { animation-delay: 0.18s; }
+.stats-grid .stat-card:nth-child(3) { animation-delay: 0.26s; }
+
+/* ── Reduce motion preference ── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
